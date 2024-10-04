@@ -1,6 +1,7 @@
 var score1 = 0;
 var score2 = 0;
 
+// Function to roll dice
 function rollDice() {
     var randomNumber1 = Math.floor(Math.random() * 6) + 1;
     var diceImage1 = "images/dice" + randomNumber1 + ".png";
@@ -10,14 +11,24 @@ function rollDice() {
     var diceImage2 = "images/dice" + randomNumber2 + ".png";
     document.querySelector(".img2").setAttribute("src", diceImage2);
 
+    var resultElement = document.getElementById("result");
+    var winSound = document.getElementById("winSound");
+
+    // Reset win class
+    resultElement.classList.remove("win");
+
     if (randomNumber1 === randomNumber2) {
-        document.getElementById("result").innerHTML = "It's a Tie!";
+        resultElement.innerHTML = "It's a Tie!";
     } else if (randomNumber1 > randomNumber2) {
-        document.getElementById("result").innerHTML = "Player 1 Wins!";
+        resultElement.innerHTML = "Player 1 Wins!";
         score1++;
+        resultElement.classList.add("win");  // Add animation for win
+        winSound.play();  // Play win sound
     } else {
-        document.getElementById("result").innerHTML = "Player 2 Wins!";
+        resultElement.innerHTML = "Player 2 Wins!";
         score2++;
+        resultElement.classList.add("win");  // Add animation for win
+        winSound.play();  // Play win sound
     }
 
     // Update the scores

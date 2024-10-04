@@ -1,12 +1,23 @@
 body {
   text-align: center;
   font-family: 'Lobster', sans-serif;
-  background-color: #f3f3f3;
+  background-color: #000;  /* Black background */
+}
+
+.neon-text {
+  font-size: 2rem;
+  color: #39ff14;  /* Neon green text */
+  text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14;
 }
 
 h1 {
   font-size: 3rem;
-  color: #2c3e50;
+  color: #39ff14;
+  transition: transform 0.3s ease-in-out;
+}
+
+#result.win {
+  animation: neon-glow 1s infinite alternate;  /* Animation for win message */
 }
 
 .dice {
@@ -17,37 +28,39 @@ h1 {
 .dice img {
   width: 150px;
   height: 150px;
-  transition: transform 0.2s ease-in-out;
 }
 
-.dice img:hover {
-  transform: rotate(20deg);
-}
-
-button {
+button.neon-button {
   font-family: 'Indie Flower', cursive;
   font-size: 1.5rem;
   padding: 10px 20px;
-  background-color: #2ecc71;
-  color: white;
+  background-color: #ff073a;  /* Neon red */
+  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   margin-top: 20px;
-  transition: background-color 0.3s;
+  box-shadow: 0 0 5px #ff073a, 0 0 15px #ff073a;
 }
 
-button:hover {
-  background-color: #27ae60;
+button.neon-button:hover {
+  background-color: #ff444f;
+  box-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
 }
 
-#score1, #score2 {
-  font-size: 1.2rem;
-  color: #34495e;
+@keyframes neon-glow {
+  from {
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+  }
+  to {
+    text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 60px #39ff14;
+    transform: scale(1.05);
+  }
 }
 
 footer {
   font-size: 1.5rem;
+  color: #39ff14;
+  text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14;
   margin-top: 30px;
-  color: #2980b9;
 }
